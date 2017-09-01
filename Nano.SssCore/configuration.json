@@ -1,0 +1,31 @@
+﻿{
+	"ReRoutes": [
+		{
+			"DownstreamPathTemplate": "/api/values",
+			"DownstreamScheme": "http",
+			"UpstreamPathTemplate": "/api/values",
+			"UpstreamHttpMethod": [ "Get" ],
+			"DownstreamHost": "localhost",
+			"DownstreamPort": 64629,
+			"FileCacheOptions": { "TtlSeconds": 15 }
+		},
+		{
+			"DownstreamPathTemplate": "/api/Hello",
+			"DownstreamScheme": "http",
+			"UpstreamPathTemplate": "/api/Hello",
+			"UpstreamHttpMethod": [ "Get" ],
+			"DownstreamHost": "localhost",
+			"DownstreamPort": 64638,
+			"FileCacheOptions": { "TtlSeconds": 15 }
+		}
+	],
+
+	"GlobalConfiguration": {
+		"RequestIdKey": "OcRequestId",
+		"ServiceDiscoveryProvider": {
+			"Provider": "Consul",
+			"Host": "localhost",
+			"Port": 8500
+		}
+	}
+}

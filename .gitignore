@@ -1,0 +1,15 @@
+
+.DS_Store
+___*
+.vs/
+*.suo
+*.user
+bin/
+obj/
+packages/
+*.log
+log/
+_output/
+desktop.ini
+.sass-cache/
+node_modules/
