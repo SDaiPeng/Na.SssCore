@@ -119,9 +119,9 @@ namespace Nano.SssCore.RegistryHost.ConsulRegistry
 		public async Task<RegistryInformation> RegisterServiceAsync(string serviceName, string version, Uri uri, Uri healthCheckUri = null, IEnumerable<string> tags = null)
 		{
 			var serviceId = await GetServiceIdAsync(serviceName, uri);
-			string check = healthCheckUri?.ToString() ?? $"{uri}".TrimEnd('/') + "/status";
+			var check = healthCheckUri?.ToString() ?? $"{uri}".TrimEnd('/') + "/status";
 
-			string versionLabel = $"{VERSION_PREFIX}{version}";
+			var versionLabel = $"{VERSION_PREFIX}{version}";
 			var tagList = (tags ?? Enumerable.Empty<string>()).ToList();
 			tagList.Add(versionLabel);
 
@@ -151,8 +151,8 @@ namespace Nano.SssCore.RegistryHost.ConsulRegistry
 		public async Task<bool> DeregisterServiceAsync(string serviceId)
 		{
 			var writeResult = await _consul.Agent.ServiceDeregister(serviceId);
-			bool isSuccess = writeResult.StatusCode == HttpStatusCode.OK;
-			string success = isSuccess ? "succeeded" : "failed";
+			var isSuccess = writeResult.StatusCode == HttpStatusCode.OK;
+			var success = isSuccess ? "succeeded" : "failed";
 
 			return isSuccess;
 		}
@@ -189,8 +189,8 @@ namespace Nano.SssCore.RegistryHost.ConsulRegistry
 		public async Task<bool> DeregisterHealthCheckAsync(string checkId)
 		{
 			var writeResult = await _consul.Agent.CheckDeregister(checkId);
-			bool isSuccess = writeResult.StatusCode == HttpStatusCode.OK;
-			string success = isSuccess ? "succeeded" : "failed";
+			var isSuccess = writeResult.StatusCode == HttpStatusCode.OK;
+			var success = isSuccess ? "succeeded" : "failed";
 
 			return isSuccess;
 		}
@@ -205,9 +205,7 @@ namespace Nano.SssCore.RegistryHost.ConsulRegistry
 		{
 			var queryResult = await _consul.KV.Get(key);
 			if (queryResult.Response == null)
-			{
 				return null;
-			}
 
 			return Encoding.UTF8.GetString(queryResult.Response.Value);
 		}

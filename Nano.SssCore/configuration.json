@@ -10,9 +10,9 @@
 			"FileCacheOptions": { "TtlSeconds": 15 }
 		},
 		{
-			"DownstreamPathTemplate": "/api/Hello",
+			"DownstreamPathTemplate": "/api/Hello/{action}",
 			"DownstreamScheme": "http",
-			"UpstreamPathTemplate": "/api/Hello",
+			"UpstreamPathTemplate": "/api/Hello/{action}",
 			"UpstreamHttpMethod": [ "Get" ],
 			"DownstreamHost": "localhost",
 			"DownstreamPort": 64638,

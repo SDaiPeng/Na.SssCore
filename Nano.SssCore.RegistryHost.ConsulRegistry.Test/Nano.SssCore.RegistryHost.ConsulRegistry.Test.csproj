@@ -6,11 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Consul" Version="0.7.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Nano.SssCore.Core\Nano.SssCore.Core.csproj" />
+    <ProjectReference Include="..\Nano.SssCore.RegistryHost.ConsulRegistry\Nano.SssCore.RegistryHost.ConsulRegistry.csproj" />
   </ItemGroup>
 
 </Project>
